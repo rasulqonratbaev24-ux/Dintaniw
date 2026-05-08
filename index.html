@@ -82,7 +82,7 @@ const cats=["Islam","Buddizm","Xristianliq","Zardushtiylik","Mix"];
 
 /* 🔥 SEN YOZGANDAY TO‘LIQ SAVOLLAR */
 
-const questions = { "A": [
+const questions = { "Islam": [
     {q: "Titul beti neshinshi shriftte bolıwı múmkin ?", o: {A: "16", B: "13", C: "14", D: "15"}, a: "C"},
     {q: ".... - oqıw dawamında zárúr bolǵan nátiyjeniń xarakteristikası.", o: {A: "Kurs jumısın durıs jazıw tártibi", B: "Quramı (Mazmun)", C: "Kurs jumısınıń maqseti", D: "Kurs jumısınıń aktuallıǵı"}, a: "C"},
     {q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "Kurs esabatlari"}, a: "B"},
@@ -92,7 +92,7 @@ const questions = { "A": [
     {q: "Ádette teoriya hám ámeliyattan ibarat, 24 betke shekem bolatuǵın bólim:", o: {A: "Juwmaq", B: "Kirisiw", C: "Tiykarǵı bólim", D: "Taliqlaw"}, a: "C"},
     {q: "Jazba jumıs waqtında juwap beriletuǵın soraw hám ádebiyatlardı úyreniw bólimi:", o: {A: "Juwmaqlar", B: "Maseleler", C: "Natiyjeler", D: "Taliqlawlar"}, a: "B"}
   ],
-  "B": [
+  "Buddizm": [
     {q: "Annotaciya degen ne?", o: {A: "Tekst awdarması", B: "Kitap atı", C: "Súwret salıw", D: "Teksttiń qısqasha mazmuni"}, a: "D"},
     {q: "Annotaciyanın tiykarģı wazıypası ne?", o: {A: "Tekst mazmunin qisqasha túsindiriw", B: "Tekstti uzaytıw", C: "Súwret qosıw", D: "Sózlerdi yadlaw"}, a: "A"},
     {q: "Annotaciya qanday qásiyetke iye boliwi kerek?", o: {A: "Júdá uzın", B: "Qisqa hám aniq", C: "Tek súwretli", D: "Tek awdarma"}, a: "B"},
@@ -102,7 +102,7 @@ const questions = { "A": [
     {q: "Annotatsiyada eń áhmiyetli tárepi ne?", o: {A: "Tiykargı ideyanı anıq hám qısqa bayanlaw", B: "Tekstti uzin jaziw", C: "Kóp súwret qosıw", D: "Tek temasın jazıw"}, a: "A"},
     {q: "Annotatsiya jaziwda qaysı kózqaras duris?", o: {A: "Hárbir sózdi jaziw", B: "Kereksiz detallardı qısqartıp, mazmundı saqlaw", C: "Tek awdarma islew", D: "Tekstti ózgertpew"}, a: "B"}
   ],
-  "C": [
+  "Xristianliq": [
     {q: "Annotaciya jaziwda tiykarģi itibar nege qaratıladı?", o: {A: "Tekstti bezew", B: "Súwret salıw", C: "Avtor ómirin jazıw", D: "Tiykargı mazmundı qısqasha bayanlaw"}, a: "D"},
     {q: "Annotaciya qashan kerek boladı?", o: {A: "Oqıwshıǵa tekst haqqında tez túsinik beriwde", B: "Tekstti yadlawda", C: "Súwret salıwda", D: "Oyın oynawda"}, a: "A"},
     {q: "Annotaciya jazıwda qaysı usıl duris?", o: {A: "Barlıq gápti jaziw", B: "En áhmiyetli pikirlerdi ajıratıp aliw", C: "Tekstti ózgertpew", D: "Tek awdarma islew"}, a: "B"},
@@ -112,7 +112,7 @@ const questions = { "A": [
     {q: "Ilimiy annotatsiya qanday boliwi kerek?", o: {A: "Júdá uzin hám quramalı", B: "Tek súwretli", C: "Anıqlıq hám qısqalıqtı saqlaǵan halda mazmunlı", D: "Tek awdarma"}, a: "C"},
     {q: "Annotatsiya jaziwda eń duris strategiya qaysi?", o: {A: "Tekstten tiykargı pikirlerdi tańlap qısqartıw", B: "Hárbir gápti jaziw", C: "Tek tema jazıw", D: "Tekstti ózgertpew"}, a: "A"}
   ],
-  "D": [
+  "Zardushtiylik": [
     {q: "Kurs jumisi bet ko'lemi qansha boliwi kerek?", o: {A: "35-40", B: "30-45", C: "25-30", D: "30-50"}, a: "B"},
     {q: "Tekst standart qanday rende boliwi kerek?", o: {A: "Qara", B: "Qoyiw qara", C: "Ashiq qara", D: "Aq"}, a: "A"},
     {q: "Bir bette qansha so'z ham qansha belgiden ibarat boliwi múmkin?", o: {A: "60 so'z 1810 belgi", B: "60-70 so'z 1800 belgi", C: "60 so'z 1800 belgi", D: "60 so'z 1800-2000 belgi"}, a: "C"},
@@ -122,7 +122,7 @@ const questions = { "A": [
     {q: "Kurs jumısı studentlerdiń rawajlanıwına qanday járdem beredi?", o: {A: "Sistemalı pikirlew hám professional jazba til", B: "Tek dóretiwshilik", C: "Sistemalı pikirlew, intellektuallıq dóretiwshilik hám professional til", D: "Oy-pikirinin' qaliplesiwi"}, a: "C"},
     {q: "Kurs jumısların jazıwdıǹ tiykarǵı basqıshları?", o: {A: "Tema tańlaw, ádebiyatlar, joba dúziw hám jumıstı jazıw", B: "Tek joba duziw", C: "Izertlew hám qorgaw", D: "Adebiyatlardi uyreniw"}, a: "A"}
   ],
-  "E": [
+  "Mix": [
     {q: "Qaysi mámleket aymaǵı bir waqıttıń ózinde Evropa hám Aziyada jaylasqan?", o: {A: "Turkiya", B: "Rossiya", C: "Qazaqstan", D: "Barlıq juwaplar durıs"}, a: "A"},
     {q: "Korol Artur Pendragondı kim óltiredi?", o: {A: "Morgana", B: "Aithusa", C: "Mordred", D: "Agravaine de Bois"}, a: "C"},
     {q: "Logika: Súwretli soraw juwabı?", o: {A: "5", B: "7", C: "4", D: "9"}, a: "A"},
