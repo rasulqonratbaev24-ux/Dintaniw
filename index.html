@@ -7,17 +7,17 @@
 <style>
 body{background:#111;color:white;font-family:Arial;text-align:center;}
 
-.score{display:flex;justify-content:center;gap:15px;margin:15px;}
+.score{display:flex;justify-content:center;gap:20px;margin:20px;}
 
-.team{padding:20px;border:4px solid white;border-radius:10px;}
+.team{padding:60px;border:16px solid white;border-radius:20px;}
 
-input{width:140px;text-align:center;font-size:36px;}
+input{width:160px;text-align:center;font-size:40px;}
 
 table{margin:auto;border-collapse:collapse;}
 
 td,th{
 width:240px;height:120px;
-border:4px solid white;
+border:8px solid white;
 cursor:pointer;
 }
 
@@ -29,8 +29,8 @@ position:fixed;
 top:50%;left:50%;
 transform:translate(-50%,-50%);
 background:#222;
-padding:40px;
-border:4px solid white;
+padding:60px;
+border:10px solid white;
 width:65%;
 z-index:999;
 max-height:70vh;
@@ -38,8 +38,8 @@ overflow:auto;
 }
 
 .option{
-margin:40px;
-padding:48px;
+margin:60px;
+padding:50px;
 background:#333;
 cursor:pointer;
 }
@@ -55,7 +55,7 @@ background:gold;
 color:black;
 padding:80px;
 font-size:64px;
-border:8px solid white;
+border:10px solid white;
 z-index:9999;
 }
 </style>
@@ -72,6 +72,8 @@ z-index:9999;
 <div class="team">T4 <input></div>
 </div>
 
+<div id="turnBox">🎯 : T1</div>
+
 <table id="board"></table>
 <div id="bonusBox"></div>
 
@@ -85,7 +87,8 @@ const cats=["Islam","Buddizm","Xristianliq","Zardushtiylik","Mix"];
 const questions = { "Islam": [
     {q: "Titul beti neshinshi shriftte bolıwı múmkin ?", o: {A: "16", B: "13", C: "14", D: "15"}, a: "C"},
     {q: ".... - oqıw dawamında zárúr bolǵan nátiyjeniń xarakteristikası.", o: {A: "Kurs jumısın durıs jazıw tártibi", B: "Quramı (Mazmun)", C: "Kurs jumısınıń maqseti", D: "Kurs jumısınıń aktuallıǵı"}, a: "C"},
-    {q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "Kurs esabatlari"}, a: "B"},
+    {q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "
+        Kurs esabatlari"}, a: "B"},
     {q: "Taǹlaǵan kásibi boyınsha bilim alıwdıń belgili bir basqıshta barlıq pánlerden alǵan bilimlerin bekkemlew hám ulıwmalastırıw:", o: {A: "Quramı (Mazmun)", B: "Kurs jumısın jazdırıwdan maqset", C: "Kurs jumısın durıs jazıw tártibi", D: "Kurs jumısınıń aktuallıǵı"}, a: "B"},
     {q: "Tiykarǵı qaǵıydalarǵa muwapıq jazılǵan quramalı ilimiy jumıstıń atı qanday?", o: {A: "Kurs esabatlari", B: "Maqseti", C: "Jobasi", D: "Kurs jumislar"}, a: "D"},
     {q: "Bilimlerdi bekkemlew, óz ara baylanıstırıp ulıwmalastırıw maqsetinde jazılǵan jumıs:", o: {A: "Kurs jumısın jazdırıwdan maqset", B: "Quramı", C: "Aktuallıǵı", D: "Jazıw tártibi"}, a: "A"},
@@ -193,6 +196,14 @@ alert(k===qq.a?"✔ Correct":"❌ Error");
 cell.style.background="gray";
 cell.onclick=null;
 div.remove();
+};
+
+currentTeam++;
+if(currentTeam>4) currentTeam=1;
+
+document.getElementById("turnBox").innerText =
+"🎯 : T"+currentTeam;
+    
 };
 
 div.appendChild(b);
