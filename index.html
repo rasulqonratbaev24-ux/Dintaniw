@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>GAME</title>
@@ -82,61 +83,61 @@ z-index:9999;
 const pts=[100,200,300,400,500,600,700,800];
 const cats=["Islam","Buddizm","Xristianliq","Zardushtiylik","Mix"];
 
-/* 🔥 SEN YOZGANDAY TO‘LIQ SAVOLLAR */
+let currentTeam = 1;
 
-const questions = { "Islam": [
-    {q: "Titul beti neshinshi shriftte bolıwı múmkin ?", o: {A: "16", B: "13", C: "14", D: "15"}, a: "C"},
-    {q: ".... - oqıw dawamında zárúr bolǵan nátiyjeniń xarakteristikası.", o: {A: "Kurs jumısın durıs jazıw tártibi", B: "Quramı (Mazmun)", C: "Kurs jumısınıń maqseti", D: "Kurs jumısınıń aktuallıǵı"}, a: "C"},
-    {q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "
-        Kurs esabatlari"}, a: "B"},
-    {q: "Taǹlaǵan kásibi boyınsha bilim alıwdıń belgili bir basqıshta barlıq pánlerden alǵan bilimlerin bekkemlew hám ulıwmalastırıw:", o: {A: "Quramı (Mazmun)", B: "Kurs jumısın jazdırıwdan maqset", C: "Kurs jumısın durıs jazıw tártibi", D: "Kurs jumısınıń aktuallıǵı"}, a: "B"},
-    {q: "Tiykarǵı qaǵıydalarǵa muwapıq jazılǵan quramalı ilimiy jumıstıń atı qanday?", o: {A: "Kurs esabatlari", B: "Maqseti", C: "Jobasi", D: "Kurs jumislar"}, a: "D"},
-    {q: "Bilimlerdi bekkemlew, óz ara baylanıstırıp ulıwmalastırıw maqsetinde jazılǵan jumıs:", o: {A: "Kurs jumısın jazdırıwdan maqset", B: "Quramı", C: "Aktuallıǵı", D: "Jazıw tártibi"}, a: "A"},
-    {q: "Ádette teoriya hám ámeliyattan ibarat, 24 betke shekem bolatuǵın bólim:", o: {A: "Juwmaq", B: "Kirisiw", C: "Tiykarǵı bólim", D: "Taliqlaw"}, a: "C"},
-    {q: "Jazba jumıs waqtında juwap beriletuǵın soraw hám ádebiyatlardı úyreniw bólimi:", o: {A: "Juwmaqlar", B: "Maseleler", C: "Natiyjeler", D: "Taliqlawlar"}, a: "B"}
-  ],
-  "Buddizm": [
-    {q: "Annotaciya degen ne?", o: {A: "Tekst awdarması", B: "Kitap atı", C: "Súwret salıw", D: "Teksttiń qısqasha mazmuni"}, a: "D"},
-    {q: "Annotaciyanın tiykarģı wazıypası ne?", o: {A: "Tekst mazmunin qisqasha túsindiriw", B: "Tekstti uzaytıw", C: "Súwret qosıw", D: "Sózlerdi yadlaw"}, a: "A"},
-    {q: "Annotaciya qanday qásiyetke iye boliwi kerek?", o: {A: "Júdá uzın", B: "Qisqa hám aniq", C: "Tek súwretli", D: "Tek awdarma"}, a: "B"},
-    {q: "Annotaciya ádette qay jerde qollanıladı?", o: {A: "Tek oyınlarda", B: "Tek súwretlerde", C: "Kitap hám ilimiy maqalalarda", D: "Tek sóylesiwde"}, a: "C"},
-    {q: "Annotaciya hám awdarma ayırmashılıǵı nede?", o: {A: "Annotaciya mazmundı qısqartadı, awdarma tildi ózgertedi", B: "Ekewi de birdey", C: "Awdarma qısqa boladı", D: "Annotaciya tek súwret"}, a: "A"},
-    {q: "Ilimiy annotasiyanıń wazıypası ne?", o: {A: "Tekstti sızıw", B: "Izertlew mazmunın qısqasha bayan etiw", C: "Tek atama jazıw", D: "Tekstti ózgertiw"}, a: "B"},
-    {q: "Annotatsiyada eń áhmiyetli tárepi ne?", o: {A: "Tiykargı ideyanı anıq hám qısqa bayanlaw", B: "Tekstti uzin jaziw", C: "Kóp súwret qosıw", D: "Tek temasın jazıw"}, a: "A"},
-    {q: "Annotatsiya jaziwda qaysı kózqaras duris?", o: {A: "Hárbir sózdi jaziw", B: "Kereksiz detallardı qısqartıp, mazmundı saqlaw", C: "Tek awdarma islew", D: "Tekstti ózgertpew"}, a: "B"}
-  ],
-  "Xristianliq": [
-    {q: "Annotaciya jaziwda tiykarģi itibar nege qaratıladı?", o: {A: "Tekstti bezew", B: "Súwret salıw", C: "Avtor ómirin jazıw", D: "Tiykargı mazmundı qısqasha bayanlaw"}, a: "D"},
-    {q: "Annotaciya qashan kerek boladı?", o: {A: "Oqıwshıǵa tekst haqqında tez túsinik beriwde", B: "Tekstti yadlawda", C: "Súwret salıwda", D: "Oyın oynawda"}, a: "A"},
-    {q: "Annotaciya jazıwda qaysı usıl duris?", o: {A: "Barlıq gápti jaziw", B: "En áhmiyetli pikirlerdi ajıratıp aliw", C: "Tekstti ózgertpew", D: "Tek awdarma islew"}, a: "B"},
-    {q: "Annotaciya jazıwshı neni biliwi kerek?", o: {A: "Teksttiń tiykarģı ideyasın", B: "Tek grammatikanı", C: "Tek ǵana avtordı", D: "Tek temasın"}, a: "A"},
-    {q: "Annotaciya ne ushin áhmiyetli?", o: {A: "Tekstti sozadi", B: "Tek súwret beredi", C: "Waqıttı únemlep, mazmundı tez túsiniwge járdem beredi", D: "Tek atın kórsetedi"}, a: "C"},
-    {q: "Annotaciya jazıwda qanday qáte eń kóp ushirasadı?", o: {A: "Súwret salmaw", B: "Kereksiz detallardı qosıp jiberiw", C: "Kitap atın jazbaw", D: "Qálem isletpew"}, a: "B"},
-    {q: "Ilimiy annotatsiya qanday boliwi kerek?", o: {A: "Júdá uzin hám quramalı", B: "Tek súwretli", C: "Anıqlıq hám qısqalıqtı saqlaǵan halda mazmunlı", D: "Tek awdarma"}, a: "C"},
-    {q: "Annotatsiya jaziwda eń duris strategiya qaysi?", o: {A: "Tekstten tiykargı pikirlerdi tańlap qısqartıw", B: "Hárbir gápti jaziw", C: "Tek tema jazıw", D: "Tekstti ózgertpew"}, a: "A"}
-  ],
-  "Zardushtiylik": [
-    {q: "Kurs jumisi bet ko'lemi qansha boliwi kerek?", o: {A: "35-40", B: "30-45", C: "25-30", D: "30-50"}, a: "B"},
-    {q: "Tekst standart qanday rende boliwi kerek?", o: {A: "Qara", B: "Qoyiw qara", C: "Ashiq qara", D: "Aq"}, a: "A"},
-    {q: "Bir bette qansha so'z ham qansha belgiden ibarat boliwi múmkin?", o: {A: "60 so'z 1810 belgi", B: "60-70 so'z 1800 belgi", C: "60 so'z 1800 belgi", D: "60 so'z 1800-2000 belgi"}, a: "C"},
-    {q: "Bir bet oń hám shep tárepleri qanday formatlaniwi kerek?", o: {A: "15-20 mm", B: "20-25 mm", C: "18-20 mm", D: "15-25 mm"}, a: "B"},
-    {q: "Kurs jumisin duris jaziw tartibi qaysı?", o: {A: "Titul beti, Kirisiw, Tiykarg'i bo'lim, Juwmaq", B: "Titul, Qurami, Kirisiw, Tiykarg'i bo'lim, Juwmaq, Adebiyatlar, Qosimshalar", C: "Kirisiw, Tiykarg'i bo'lim, Juwmaq", D: "Titul, Qurami, Juwmaq, Qosimshalar"}, a: "B"},
-    {q: "Kurs jumisi degenimiz ne?", o: {A: "Analitik, esaplaw hám izertlew wazıypaları kompleksi", B: "Ma'mleket tárepinen birlestirilgen esap", C: "Tek jeke pikirler jıyındısı", D: "Barliq juwaplar qate"}, a: "A"},
-    {q: "Kurs jumısı studentlerdiń rawajlanıwına qanday járdem beredi?", o: {A: "Sistemalı pikirlew hám professional jazba til", B: "Tek dóretiwshilik", C: "Sistemalı pikirlew, intellektuallıq dóretiwshilik hám professional til", D: "Oy-pikirinin' qaliplesiwi"}, a: "C"},
-    {q: "Kurs jumısların jazıwdıǹ tiykarǵı basqıshları?", o: {A: "Tema tańlaw, ádebiyatlar, joba dúziw hám jumıstı jazıw", B: "Tek joba duziw", C: "Izertlew hám qorgaw", D: "Adebiyatlardi uyreniw"}, a: "A"}
-  ],
-  "Mix": [
-    {q: "Qaysi mámleket aymaǵı bir waqıttıń ózinde Evropa hám Aziyada jaylasqan?", o: {A: "Turkiya", B: "Rossiya", C: "Qazaqstan", D: "Barlıq juwaplar durıs"}, a: "A"},
-    {q: "Korol Artur Pendragondı kim óltiredi?", o: {A: "Morgana", B: "Aithusa", C: "Mordred", D: "Agravaine de Bois"}, a: "C"},
-    {q: "Logika: Súwretli soraw juwabı?", o: {A: "5", B: "7", C: "4", D: "9"}, a: "A"},
-    {q: "Insan miyi bir kúnde shama menen neshe pikir payda etedi?", o: {A: "17000", B: "19000", C: "70000", D: "7000"}, a: "C"},
-    {q: "2007/2008-máwsimde Altın top (Ballon d'or) kimge berilgen?", o: {A: "C.Ronaldo", B: "Kaka", C: "L.Messi", D: "Ronaldinho"}, a: "B"},
-    {q: "UFC tariyxında double champion bolǵan birinshi jawınger:", o: {A: "Khabib Nurmagomedov", B: "Conor McGregor", C: "Daniel Cormier", D: "Stipe Miocic"}, a: "B"},
-    {q: "Marvel - Thanos rolin qaysı aktyor oynaǵan?", o: {A: "Tom Hiddleston", B: "Josh Brolin", C: "Chris Evans", D: "Mark Ruffalo"}, a: "B"},
-    {q: "Logikalıq kod sorawı: 'Suwret' juwabı qaysı?", o: {A: "602", B: "402", C: "046", D: "042"}, a: "D"}
-  ]
-
-                  };
+/* QUESTIONS */
+const questions = {
+"Islam": [
+{q: "Titul beti neshinshi shriftte bolıwı múmkin ?", o: {A: "16", B: "13", C: "14", D: "15"}, a: "C"},
+{q: ".... - oqıw dawamında zárúr bolǵan nátiyjeniń xarakteristikası.", o: {A: "Kurs jumısın durıs jazıw tártibi", B: "Quramı (Mazmun)", C: "Kurs jumısınıń maqseti", D: "Kurs jumısınıń aktuallıǵı"}, a: "C"},
+{q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "Kurs esabatlari"}, a: "B"},
+{q: "Taǹlaǵan kásibi boyınsha bilim alıwdıń belgili bir basqıshta barlıq pánlerden alǵan bilimlerin bekkemlew hám ulıwmalastırıw:", o: {A: "Quramı (Mazmun)", B: "Kurs jumısın jazdırıwdan maqset", C: "Kurs jumısın durıs jazıw tártibi", D: "Kurs jumısınıń aktuallıǵı"}, a: "B"},
+{q: "Tiykarǵı qaǵıydalarǵa muwapıq jazılǵan quramalı ilimiy jumıstıń atı qanday?", o: {A: "Kurs esabatlari", B: "Maqseti", C: "Jobasi", D: "Kurs jumislar"}, a: "D"},
+{q: "Bilimlerdi bekkemlew, óz ara baylanıstırıp ulıwmalastırıw maqsetinde jazılǵan jumıs:", o: {A: "Kurs jumısın jazdırıwdan maqset", B: "Quramı", C: "Aktuallıǵı", D: "Jazıw tártibi"}, a: "A"},
+{q: "Ádette teoriya hám ámeliyattan ibarat, 24 betke shekem bolatuǵın bólim:", o: {A: "Juwmaq", B: "Kirisiw", C: "Tiykarǵı bólim", D: "Taliqlaw"}, a: "C"},
+{q: "Jazba jumıs waqtında juwap beriletuǵın soraw hám ádebiyatlardı úyreniw bólimi:", o: {A: "Juwmaqlar", B: "Maseleler", C: "Natiyjeler", D: "Taliqlawlar"}, a: "B"}
+],
+"Buddizm": [
+{q: "Annotaciya degen ne?", o: {A: "Tekst awdarması", B: "Kitap atı", C: "Súwret salıw", D: "Teksttiń qısqasha mazmuni"}, a: "D"},
+{q: "Annotaciyanın tiykarģı wazıypası ne?", o: {A: "Tekst mazmunin qisqasha túsindiriw", B: "Tekstti uzaytıw", C: "Súwret qosıw", D: "Sózlerdi yadlaw"}, a: "A"},
+{q: "Annotaciya qanday qásiyetke iye boliwi kerek?", o: {A: "Júdá uzın", B: "Qisqa hám aniq", C: "Tek súwretli", D: "Tek awdarma"}, a: "B"},
+{q: "Annotaciya ádette qay jerde qollanıladı?", o: {A: "Tek oyınlarda", B: "Tek súwretlerde", C: "Kitap hám ilimiy maqalalarda", D: "Tek sóylesiwde"}, a: "C"},
+{q: "Annotaciya hám awdarma ayırmashılıǵı nede?", o: {A: "Annotaciya mazmundı qısqartadı, awdarma tildi ózgertedi", B: "Ekewi de birdey", C: "Awdarma qısqa boladı", D: "Annotaciya tek súwret"}, a: "A"},
+{q: "Ilimiy annotasiyanıń wazıypası ne?", o: {A: "Tekstti sızıw", B: "Izertlew mazmunın qısqasha bayan etiw", C: "Tek atama jazıw", D: "Tekstti ózgertiw"}, a: "B"},
+{q: "Annotatsiyada eń áhmiyetli tárepi ne?", o: {A: "Tiykargı ideyanı anıq hám qısqa bayanlaw", B: "Tekstti uzin jaziw", C: "Kóp súwret qosıw", D: "Tek temasın jazıw"}, a: "A"},
+{q: "Annotatsiya jaziwda qaysı kózqaras duris?", o: {A: "Hárbir sózdi jaziw", B: "Kereksiz detallardı qısqartıp, mazmundı saqlaw", C: "Tek awdarma islew", D: "Tekstti ózgertpew"}, a: "B"}
+],
+"Xristianliq": [
+{q: "Annotaciya jaziwda tiykarģi itibar nege qaratıladı?", o: {A: "Tekstti bezew", B: "Súwret salıw", C: "Avtor ómirin jazıw", D: "Tiykargı mazmundı qısqasha bayanlaw"}, a: "D"},
+{q: "Annotaciya qashan kerek boladı?", o: {A: "Oqıwshıǵa tekst haqqında tez túsinik beriwde", B: "Tekstti yadlawda", C: "Súwret salıwda", D: "Oyın oynawda"}, a: "A"},
+{q: "Annotaciya jazıwda qaysı usıl duris?", o: {A: "Barlıq gápti jaziw", B: "En áhmiyetli pikirlerdi ajıratıp aliw", C: "Tekstti ózgertpew", D: "Tek awdarma islew"}, a: "B"},
+{q: "Annotaciya jazıwshı neni biliwi kerek?", o: {A: "Teksttiń tiykarģı ideyasın", B: "Tek grammatikanı", C: "Tek ǵana avtordı", D: "Tek temasın"}, a: "A"},
+{q: "Annotaciya ne ushin áhmiyetli?", o: {A: "Tekstti sozadi", B: "Tek súwret beredi", C: "Waqıttı únemlep, mazmundı tez túsiniwge járdem beredi", D: "Tek atın kórsetedi"}, a: "C"},
+{q: "Annotaciya jazıwda qanday qáte eń kóp ushirasadı?", o: {A: "Súwret salmaw", B: "Kereksiz detallardı qosıp jiberiw", C: "Kitap atın jazbaw", D: "Qálem isletpew"}, a: "B"},
+{q: "Ilimiy annotatsiya qanday boliwi kerek?", o: {A: "Júdá uzin hám quramalı", B: "Tek súwretli", C: "Anıqlıq hám qısqalıqtı saqlaǵan halda mazmunlı", D: "Tek awdarma"}, a: "C"},
+{q: "Annotatsiya jaziwda eń duris strategiya qaysi?", o: {A: "Tekstten tiykargı pikirlerdi tańlap qısqartıw", B: "Hárbir gápti jaziw", C: "Tek tema jazıw", D: "Tekstti ózgertpew"}, a: "A"}
+],
+"Zardushtiylik": [
+{q: "Kurs jumisi bet ko'lemi qansha boliwi kerek?", o: {A: "35-40", B: "30-45", C: "25-30", D: "30-50"}, a: "B"},
+{q: "Tekst standart qanday rende boliwi kerek?", o: {A: "Qara", B: "Qoyiw qara", C: "Ashiq qara", D: "Aq"}, a: "A"},
+{q: "Bir bette qansha so'z ham qansha belgiden ibarat boliwi múmkin?", o: {A: "60 so'z 1810 belgi", B: "60-70 so'z 1800 belgi", C: "60 so'z 1800 belgi", D: "60 so'z 1800-2000 belgi"}, a: "C"},
+{q: "Bir bet oń hám shep tárepleri qanday formatlaniwi kerek?", o: {A: "15-20 mm", B: "20-25 mm", C: "18-20 mm", D: "15-25 mm"}, a: "B"},
+{q: "Kurs jumisin duris jaziw tartibi qaysı?", o: {A: "Titul beti, Kirisiw, Tiykarg'i bo'lim, Juwmaq", B: "Titul, Qurami, Kirisiw, Tiykarg'i bo'lim, Juwmaq, Adebiyatlar, Qosimshalar", C: "Kirisiw, Tiykarg'i bo'lim, Juwmaq", D: "Titul, Qurami, Juwmaq, Qosimshalar"}, a: "B"},
+{q: "Kurs jumisi degenimiz ne?", o: {A: "Analitik, esaplaw hám izertlew wazıypaları kompleksi", B: "Ma'mleket tárepinen birlestirilgen esap", C: "Tek jeke pikirler jıyındısı", D: "Barliq juwaplar qate"}, a: "A"},
+{q: "Kurs jumısı studentlerdiń rawajlanıwına qanday járdem beredi?", o: {A: "Sistemalı pikirlew hám professional jazba til", B: "Tek dóretiwshilik", C: "Sistemalı pikirlew, intellektuallıq dóretiwshilik hám professional til", D: "Oy-pikirinin' qaliplesiwi"}, a: "C"},
+{q: "Kurs jumısların jazıwdıǹ tiykarǵı basqıshları?", o: {A: "Tema tańlaw, ádebiyatlar, joba dúziw hám jumıstı jazıw", B: "Tek joba duziw", C: "Izertlew hám qorgaw", D: "Adebiyatlardi uyreniw"}, a: "A"}
+],
+"Mix": [
+{q: "Qaysi mámleket aymaǵı bir waqıttıń ózinde Evropa hám Aziyada jaylasqan?", o: {A: "Turkiya", B: "Rossiya", C: "Qazaqstan", D: "Barlıq juwaplar durıs"}, a: "A"},
+{q: "Korol Artur Pendragondı kim óltiredi?", o: {A: "Morgana", B: "Aithusa", C: "Mordred", D: "Agravaine de Bois"}, a: "C"},
+{q: "Logika: Súwretli soraw juwabı?", o: {A: "5", B: "7", C: "4", D: "9"}, a: "A"},
+{q: "Insan miyi bir kúnde shama menen neshe pikir payda etedi?", o: {A: "17000", B: "19000", C: "70000", D: "7000"}, a: "C"},
+{q: "2007/2008-máwsimde Altın top (Ballon d'or) kimge berilgen?", o: {A: "C.Ronaldo", B: "Kaka", C: "L.Messi", D: "Ronaldinho"}, a: "B"},
+{q: "UFC tariyxında double champion bolǵan birinshi jawınger:", o: {A: "Khabib Nurmagomedov", B: "Conor McGregor", C: "Daniel Cormier", D: "Stipe Miocic"}, a: "B"},
+{q: "Marvel - Thanos rolin qaysı aktyor oynaǵan?", o: {A: "Tom Hiddleston", B: "Josh Brolin", C: "Chris Evans", D: "Mark Ruffalo"}, a: "B"},
+{q: "Logikalıq kod sorawı: 'Suwret' juwabı qaysı?", o: {A: "602", B: "402", C: "046", D: "042"}, a: "D"}
+]
+};
 
 /* BONUS */
 let bonus=[];
@@ -173,7 +174,7 @@ setTimeout(()=>b.style.display="none",1500);
 function openQ(c,i,cell,id){
 
 if(bonus.includes(id)){
-let arr=["⚡ 2X","🔁 SWAP","🦹 STEAL","💰 +1000"];
+let arr=["⚡ 2X","🔁 SWAP","🚨 STEAL","💰 +1000"];
 showBonus(arr[Math.floor(Math.random()*4)]);
 cell.style.background="gold";
 cell.innerText="🎁";
@@ -196,14 +197,12 @@ alert(k===qq.a?"✔ Correct":"❌ Error");
 cell.style.background="gray";
 cell.onclick=null;
 div.remove();
-};
 
 currentTeam++;
 if(currentTeam>4) currentTeam=1;
 
 document.getElementById("turnBox").innerText =
 "🎯 : T"+currentTeam;
-    
 };
 
 div.appendChild(b);
