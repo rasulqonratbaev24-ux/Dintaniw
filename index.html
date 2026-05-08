@@ -23,7 +23,7 @@ cursor:pointer;
 }
 
 th{background:red;}
-td{background:blue;font-size:40px;}
+td{background:blue;font-size:48px;}
 
 .modal{
 position:fixed;
@@ -31,6 +31,7 @@ top:50%;left:50%;
 transform:translate(-50%,-50%);
 background:#222;
 padding:60px;
+font-size:48px;
 border:10px solid white;
 width:65%;
 z-index:999;
@@ -41,6 +42,7 @@ overflow:auto;
 .option{
 margin:60px;
 padding:50px;
+font-size:40px;
 background:#333;
 cursor:pointer;
 }
@@ -194,7 +196,7 @@ b.innerText=k+": "+v;
 
 b.onclick=()=>{
 alert(k===qq.a?"✔ Correct":"❌ Error");
-cell.style.background="gold";
+cell.style.background="gray";
 cell.onclick=null;
 div.remove();
 
