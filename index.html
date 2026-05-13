@@ -83,61 +83,60 @@ z-index:9999;
 <script>
 
 const pts=[100,200,300,400,500,600,700,800];
-const cats=["Islam","Buddizm","Xristianliq","Zardushtiylik","Mix"];
+const cats=["Islam","Buddizm","Xristianliq","Mix1","Mix2"];
 
 let currentTeam = 1;
 
 /* QUESTIONS */
 const questions = {
 "Islam": [
-{q: "Titul beti neshinshi shriftte bolıwı múmkin ?", o: {A: "16", B: "13", C: "14", D: "15"}, a: "C"},
-{q: ".... - oqıw dawamında zárúr bolǵan nátiyjeniń xarakteristikası.", o: {A: "Kurs jumısın durıs jazıw tártibi", B: "Quramı (Mazmun)", C: "Kurs jumısınıń maqseti", D: "Kurs jumısınıń aktuallıǵı"}, a: "C"},
-{q: ".... - bul ayırım qaǵıydalar hám normalarǵa muwapıq jazılǵan quramalı ilimiy jumıs", o: {A: "Jobası", B: "Kurs jumislar", C: "Maqseti", D: "Kurs esabatlari"}, a: "B"},
-{q: "Taǹlaǵan kásibi boyınsha bilim alıwdıń belgili bir basqıshta barlıq pánlerden alǵan bilimlerin bekkemlew hám ulıwmalastırıw:", o: {A: "Quramı (Mazmun)", B: "Kurs jumısın jazdırıwdan maqset", C: "Kurs jumısın durıs jazıw tártibi", D: "Kurs jumısınıń aktuallıǵı"}, a: "B"},
-{q: "Tiykarǵı qaǵıydalarǵa muwapıq jazılǵan quramalı ilimiy jumıstıń atı qanday?", o: {A: "Kurs esabatlari", B: "Maqseti", C: "Jobasi", D: "Kurs jumislar"}, a: "D"},
-{q: "Bilimlerdi bekkemlew, óz ara baylanıstırıp ulıwmalastırıw maqsetinde jazılǵan jumıs:", o: {A: "Kurs jumısın jazdırıwdan maqset", B: "Quramı", C: "Aktuallıǵı", D: "Jazıw tártibi"}, a: "A"},
-{q: "Ádette teoriya hám ámeliyattan ibarat, 24 betke shekem bolatuǵın bólim:", o: {A: "Juwmaq", B: "Kirisiw", C: "Tiykarǵı bólim", D: "Taliqlaw"}, a: "C"},
-{q: "Jazba jumıs waqtında juwap beriletuǵın soraw hám ádebiyatlardı úyreniw bólimi:", o: {A: "Juwmaqlar", B: "Maseleler", C: "Natiyjeler", D: "Taliqlawlar"}, a: "B"}
+{q: "622-jılı Mekke musılmanları, sonıń ishinde, Muxammed (s.a.v.) qay jerge hijrat etti?", o: {A: "Madinaga", B: "Habashstanga", C: "Hiratqa", D: "Qudusqa"}, a: "A"},
+{q: "Payǵambarımız (s.a.v.) Mekkeni basıp alıwdan keyin Kaabanı tawaf qılganda neshe márte aylangan?", o: {A: "5", B: "9", C: "7", D: "3"}, a: "C"},
+{q: "Qaysı túnde Payǵambarımız (s.a.w.) Mekke qalasınan Quddusqa alıp barılıp, aspanlarga kóterilgen hádiyse júz bergen?", o: {A: "Qádir túni", B: "Mıraj túni", C: "Hijrat túni", D: "Badr túni"}, a: "B"},
+{q: "Musılmanlar hám Mekke mushrikleri ortasındaǵı ekinshi sawash qaysi?", o: {A: "Badr", B: "Uhud", C: "Xandaq", D: "Azhob"}, a: "B"},
+{q: "Neshenshi jilda dáslepki musılmanlar Habashstanga hijrat etti?", o: {A: "614", B: "613", C: "611", D: "615"}, a: "D"},
+{q: "........ arabsha ádet, dástúr, is-háreket túri degen mánilerdi bildiredi.", o: {A: "Sunna", B: "Aqida", C: "Fiqh", D: "Qiyos"}, a: "A"},
+{q: "……. (arabsha - rawan sóylew, gáp, sóz) -islam teologiyalıq ilimi?", o: {A: "Hadis", B: "Qiroat", C: "Kalom", D: "Tafsir"}, a: "C"},
+{q: "Islam tariyxında birinshi xalifa hám Payǵambar orınbasarı kim?", o: {A: "Abu Bakr Siddiq", B: "Omar ibn Xattob", C: "Ali ibn Abi Talib.", D: "Usman ibn Affon"}, a: "A"}
 ],
 "Buddizm": [
-{q: "Annotaciya degen ne?", o: {A: "Tekst awdarması", B: "Kitap atı", C: "Súwret salıw", D: "Teksttiń qısqasha mazmuni"}, a: "D"},
-{q: "Annotaciyanın tiykarģı wazıypası ne?", o: {A: "Tekst mazmunin qisqasha túsindiriw", B: "Tekstti uzaytıw", C: "Súwret qosıw", D: "Sózlerdi yadlaw"}, a: "A"},
-{q: "Annotaciya qanday qásiyetke iye boliwi kerek?", o: {A: "Júdá uzın", B: "Qisqa hám aniq", C: "Tek súwretli", D: "Tek awdarma"}, a: "B"},
-{q: "Annotaciya ádette qay jerde qollanıladı?", o: {A: "Tek oyınlarda", B: "Tek súwretlerde", C: "Kitap hám ilimiy maqalalarda", D: "Tek sóylesiwde"}, a: "C"},
-{q: "Annotaciya hám awdarma ayırmashılıǵı nede?", o: {A: "Annotaciya mazmundı qısqartadı, awdarma tildi ózgertedi", B: "Ekewi de birdey", C: "Awdarma qısqa boladı", D: "Annotaciya tek súwret"}, a: "A"},
-{q: "Ilimiy annotasiyanıń wazıypası ne?", o: {A: "Tekstti sızıw", B: "Izertlew mazmunın qısqasha bayan etiw", C: "Tek atama jazıw", D: "Tekstti ózgertiw"}, a: "B"},
-{q: "Annotatsiyada eń áhmiyetli tárepi ne?", o: {A: "Tiykargı ideyanı anıq hám qısqa bayanlaw", B: "Tekstti uzin jaziw", C: "Kóp súwret qosıw", D: "Tek temasın jazıw"}, a: "A"},
-{q: "Annotatsiya jaziwda qaysı kózqaras duris?", o: {A: "Hárbir sózdi jaziw", B: "Kereksiz detallardı qısqartıp, mazmundı saqlaw", C: "Tek awdarma islew", D: "Tekstti ózgertpew"}, a: "B"}
+{q: "Buddizm dininde Siddxartxa Gautama kim dep ataladı hám onıń sózlik mánisi Nurshashqan (yamasa Oyanǵan) degendi bildiredi?", o: {A: "Dxarma", B: "Budda", C: "Maxatma", D: " Guru"}, a: "B"},
+{q: "Buddizm payda bolǵan, onıń dáslepki tálimatları aytılǵan hám búgingi kúnde de usı din eń muqaddas dep esaplaǵan tariyxıy úlke (mámleket) qaysı?", o: {A: "Qıtay", B: "Yaponiya", C: "Hindistan", D: "Misir"}, a: "C"},
+{q: " Pali tilinen awdarmalanǵanda Úsh sebet mánisin beretuǵın, buddizmniń eń tiykarǵı muqaddas tekstleri toplamı qalay ataladı?", o: {A: "Avesto", B: "Tripitaka", C: "Upanishadlar", D: "Vedalar"}, a: "B"},
+{q: "Insannıń barlıq isleri, niyetleri hám háreketleri onıń keyingi ómirindegi táǵdirin belgilewshi sebep hám aqıbet nızamı ne dep ataladı?", o: {A: "Nirvana", B: "Sangxa", C: "Karma ", D: "Samsara"}, a: "C"},
+{q: "Buddizmniń Kishi arba yaki Aqsaqallardıń táliymatı dep atalatuǵın, monastir turmısın hám jeke zahidlikti birinshi orınǵa qoyatuǵın eń áyyemgi dástúriy baǵdarı qaysı?", o: {A: "Maxayana", B: "Teravada", C: "Zen", D: "Tantra"}, a: "B"},
+{q: "Buddizm táliymatındaǵı Tórt joqarı haqıyqatqa kóre, barlıq insanıylıq azap-aqıbetleriniń dáslepki hám tiykarǵı sebebi ne dep kórsetiledi?", o: {A: " Nápis, tilekler hám baylanıp qalıw", B: "Kambaǵallıq hám ashlıq", C: " Kesellik hám qarrılıq", D: "rıslar hám ádalatsızlıq"}, a: "A"},
+{q: "Budda tálimatındaǵı azaptan qutılıw hám Nirvanag'a erisiw jolı bolǵan Asilzoda segiz basqıshlı jol qaysı úsh tiykarg'ı toparǵa bólinedi?", o: {A: "Sawap, Gúna, Táwbe", B: "Danalıq, Axlaq , Toplanıw", C: " Ishtiyaq, Bilim, Namaz", D: "Tınıshlıq, Ádalat, Kúsh"}, a: "B"},
+{q: "Buddizm filosofiyasında barlıq mawjudatların' turaqlı o'zgeriste ekenligi, hesh nárse ma'n'gi emesligi ha'm o'zgermas Men (Ruh/Atman) joq ekenligin an'latıwshı fundamental tu'sinik qalay ataladı?", o: {A: "Anatman", B: "Boddxisatva", C: " Mandala", D: "Sangsar"}, a: "B"}
 ],
 "Xristianliq": [
-{q: "Annotaciya jaziwda tiykarģi itibar nege qaratıladı?", o: {A: "Tekstti bezew", B: "Súwret salıw", C: "Avtor ómirin jazıw", D: "Tiykargı mazmundı qısqasha bayanlaw"}, a: "D"},
-{q: "Annotaciya qashan kerek boladı?", o: {A: "Oqıwshıǵa tekst haqqında tez túsinik beriwde", B: "Tekstti yadlawda", C: "Súwret salıwda", D: "Oyın oynawda"}, a: "A"},
-{q: "Annotaciya jazıwda qaysı usıl duris?", o: {A: "Barlıq gápti jaziw", B: "En áhmiyetli pikirlerdi ajıratıp aliw", C: "Tekstti ózgertpew", D: "Tek awdarma islew"}, a: "B"},
-{q: "Annotaciya jazıwshı neni biliwi kerek?", o: {A: "Teksttiń tiykarģı ideyasın", B: "Tek grammatikanı", C: "Tek ǵana avtordı", D: "Tek temasın"}, a: "A"},
-{q: "Annotaciya ne ushin áhmiyetli?", o: {A: "Tekstti sozadi", B: "Tek súwret beredi", C: "Waqıttı únemlep, mazmundı tez túsiniwge járdem beredi", D: "Tek atın kórsetedi"}, a: "C"},
-{q: "Annotaciya jazıwda qanday qáte eń kóp ushirasadı?", o: {A: "Súwret salmaw", B: "Kereksiz detallardı qosıp jiberiw", C: "Kitap atın jazbaw", D: "Qálem isletpew"}, a: "B"},
-{q: "Ilimiy annotatsiya qanday boliwi kerek?", o: {A: "Júdá uzin hám quramalı", B: "Tek súwretli", C: "Anıqlıq hám qısqalıqtı saqlaǵan halda mazmunlı", D: "Tek awdarma"}, a: "C"},
-{q: "Annotatsiya jaziwda eń duris strategiya qaysi?", o: {A: "Tekstten tiykargı pikirlerdi tańlap qısqartıw", B: "Hárbir gápti jaziw", C: "Tek tema jazıw", D: "Tekstti ózgertpew"}, a: "A"}
+{q: "Ózbekstanda xristianlıqtıń qaysı baģdarı en keń tarqalgan?", o: {A: "katolik", B: "pravoslav", C: "protestant", D: "baptist"}, a: "B"},
+{q: "Qaysi dinde bir Qudayǵa iseniledi, biraq Quday kórinisinde túsindiriledi?", o: {A: "Islam", B: "Yahudiylik", C: "Xristianlıq", D: 'Buddizm", a:"C"},
+{q: "Xristianlıq ideologiyasınıń tiykarģı tálimatları qaysı kitap bóliminde, yaǵnıy Isa Masihtıń ómiri hám tálimatları bayan etilgen bólimde berilgen?", o: {A: "Eski Ahd", B: "Jana Ahd", C: "Quran" D: "Talmud"}, a: "B" {q: "Xristianlıq tariyxında qaysı húkimdar xristianlıqtı Rim imperiyasının rásmiy mámleketlik dini dep járiyalagan?", o: {A: "Konstantin", B: "Theodosius I", C: "Yulian Apostat", D: "Neron"}, a: "B"}
+{q: "Katoliklikte Bibliyanı talqılaw huqıqı tek kimlerge beriledi?", o: {A: "Ápiwayı adamlarǵa", B: "Ruwxaniylerge", C: "Episkoplarga", D: "shirkew ierarxiyalarina", a: "D"}
+{q: "Qashannan baslap rim-katolik hám grek-pravoslav shirkewleri ģárezsiz jumis alıp barmaqta?", o: {A: "XI ásir ortalarınan", B: "IX ásir ortalarınan", C: "XII ásir ortalarınan", D: "X ásir ortalarınan", a: "A"}
+{q: "Qaysi shirkew barlıq ruwxaniylerge úyleniwdi qadaǵan etedi?", o: {A: "katolik", B: "lyuteran", C: "pravoslav", D: "anglikan"}, a:"A"},
+{q: "Pravoslavlarda tek kimler shanaraq qurmaydi?" oʻ: {A: "episkoplar", B: "ruwxanıylar", C: "monarxlar", D: "abbatlar"}, a:"C"}
 ],
-"Zardushtiylik": [
-{q: "Kurs jumisi bet ko'lemi qansha boliwi kerek?", o: {A: "35-40", B: "30-45", C: "25-30", D: "30-50"}, a: "B"},
-{q: "Tekst standart qanday rende boliwi kerek?", o: {A: "Qara", B: "Qoyiw qara", C: "Ashiq qara", D: "Aq"}, a: "A"},
-{q: "Bir bette qansha so'z ham qansha belgiden ibarat boliwi múmkin?", o: {A: "60 so'z 1810 belgi", B: "60-70 so'z 1800 belgi", C: "60 so'z 1800 belgi", D: "60 so'z 1800-2000 belgi"}, a: "C"},
-{q: "Bir bet oń hám shep tárepleri qanday formatlaniwi kerek?", o: {A: "15-20 mm", B: "20-25 mm", C: "18-20 mm", D: "15-25 mm"}, a: "B"},
-{q: "Kurs jumisin duris jaziw tartibi qaysı?", o: {A: "Titul beti, Kirisiw, Tiykarg'i bo'lim, Juwmaq", B: "Titul, Qurami, Kirisiw, Tiykarg'i bo'lim, Juwmaq, Adebiyatlar, Qosimshalar", C: "Kirisiw, Tiykarg'i bo'lim, Juwmaq", D: "Titul, Qurami, Juwmaq, Qosimshalar"}, a: "B"},
-{q: "Kurs jumisi degenimiz ne?", o: {A: "Analitik, esaplaw hám izertlew wazıypaları kompleksi", B: "Ma'mleket tárepinen birlestirilgen esap", C: "Tek jeke pikirler jıyındısı", D: "Barliq juwaplar qate"}, a: "A"},
-{q: "Kurs jumısı studentlerdiń rawajlanıwına qanday járdem beredi?", o: {A: "Sistemalı pikirlew hám professional jazba til", B: "Tek dóretiwshilik", C: "Sistemalı pikirlew, intellektuallıq dóretiwshilik hám professional til", D: "Oy-pikirinin' qaliplesiwi"}, a: "C"},
-{q: "Kurs jumısların jazıwdıǹ tiykarǵı basqıshları?", o: {A: "Tema tańlaw, ádebiyatlar, joba dúziw hám jumıstı jazıw", B: "Tek joba duziw", C: "Izertlew hám qorgaw", D: "Adebiyatlardi uyreniw"}, a: "A"}
+"Mix1": [
+{q: "SUWRET", o: {A: "25", B: "27", C: "30", D: "32"}, a: "B"},
+{q: "Garri Potter filminde Garri qaysı mektepte oqıydı?", o: {A: "Hogwarts", B: "Durmstrang", C: "Beauxbatons", D: "Ilvermorny"}, a: "A"},
+{q: "Qaysi planeta Quyash sistemasında eń ıssı planeta esaplanadı?", o: {A: "Merkuriy", B: "Venera", C: "Mars", D: "Yupiter"}, a: "B"},
+{q: "FIFA qaǵıydalarına bola, dárwazaman erkin soqqı waqtında toptı qolında neshe sekundqa shekem uslap turiwi múmkin?", o: {A: "4", B: "8", C: "10", D: "6"}, a: "D"},
+{q: "SUWRET", o: {A: "1", B: "4", C: "2", D: "3"}, a: "C"},
+{q: "Titanik filminde Rose hám Jek birinshi márte qay jerde ushırasadı?", o: {A: " Kemede restoranında", B: " Palubada", C: "Liftte", D: "Qutqariw qayıǵında"}, a: "B"},
+{q: "UFC tariyxında bir túnde hám Fight of the Night hám Performance of the Night bonusların alǵan birinshi jawınger kim?", o: {A: "Conor McGregor", B: "Nate Diaz", C: "Donald Cerrone", D: "Anderson Silva"}, a: "C"},
+{q: "Dúnyadaǵı qaysı mámlekettiń rásmiy paytaxtı joq?", o: {A: "Shveytsariya", B: " Lyuksemburg", C: " Vatikan", D: "Malta"}, a: "A"}
 ],
-"Mix": [
+"Mix2": [
 {q: "Qaysi mámleket aymaǵı bir waqıttıń ózinde Evropa hám Aziyada jaylasqan?", o: {A: "Turkiya", B: "Rossiya", C: "Qazaqstan", D: "Barlıq juwaplar durıs"}, a: "A"},
 {q: "Korol Artur Pendragondı kim óltiredi?", o: {A: "Morgana", B: "Aithusa", C: "Mordred", D: "Agravaine de Bois"}, a: "C"},
-{q: "Logika: Súwretli soraw juwabı?", o: {A: "5", B: "7", C: "4", D: "9"}, a: "A"},
+{q: "SUWRET", o: {A: "5", B: "7", C: "4", D: "9"}, a: "A"},
 {q: "Insan miyi bir kúnde shama menen neshe pikir payda etedi?", o: {A: "17000", B: "19000", C: "70000", D: "7000"}, a: "C"},
 {q: "2007/2008-máwsimde Altın top (Ballon d'or) kimge berilgen?", o: {A: "C.Ronaldo", B: "Kaka", C: "L.Messi", D: "Ronaldinho"}, a: "B"},
 {q: "UFC tariyxında double champion bolǵan birinshi jawınger:", o: {A: "Khabib Nurmagomedov", B: "Conor McGregor", C: "Daniel Cormier", D: "Stipe Miocic"}, a: "B"},
 {q: "Marvel - Thanos rolin qaysı aktyor oynaǵan?", o: {A: "Tom Hiddleston", B: "Josh Brolin", C: "Chris Evans", D: "Mark Ruffalo"}, a: "B"},
-{q: "Logikalıq kod sorawı: 'Suwret' juwabı qaysı?", o: {A: "602", B: "402", C: "046", D: "042"}, a: "D"}
+{q: "SUWRET", o: {A: "602", B: "402", C: "046", D: "042"}, a: "D"}
 ]
 };
 
